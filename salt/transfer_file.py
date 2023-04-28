@@ -17,7 +17,7 @@ out = stdout.decode("utf-8")
 if stderr:
     print("Ошибка переноса файлов для клиентов "+clientID)
     err = stderr.decode("utf-8")
-    print("Логи запишутся в файл /var/log/salt/transfer_file.log")
+    print("Логи запишутся в файл /var/log/salt/error.log")
     with open("/var/log/salt/transfer_file.log", "w") as file:
         file.write(err)
         file.write(out)
