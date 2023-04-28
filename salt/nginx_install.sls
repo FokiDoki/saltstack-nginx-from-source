@@ -21,38 +21,38 @@ extract_openssl:
     - source: file:///tmp/openssl.tar.gz
     - name: /tmp/openssl
 
+#--------
+# Install apt packages 
+#--------
 install_build:
     cmd.run:
       - name: apt-get install build-essential -y
 
+#--------
+# Moving dependencies   
+#--------
 install_zlib:
   cmd.run:
     - name: |
         mv */* .
-       # ./configure
-       # make
-       # make install 
     - cwd: /tmp/zlib
 
 install_pcre:
   cmd.run:
     - name: |
         mv */* .
-        #./configure
-        #make
-        #make install 
     - cwd: /tmp/pcre
     
 install_openssl:
   cmd.run:
     - name: |
         mv */* .
-        #./Configure darwin64-x86_64-cc --prefix=/usr
-        #make
-        #make install 
     - cwd: /tmp/openssl
     
-        
+    
+#--------
+# Installing nginx    
+#--------  
 install_nginx:
   cmd.run:
     - name: |
@@ -66,7 +66,9 @@ install_nginx:
         make install 
     - cwd: /tmp/nginx
 
-    
+#--------
+# Running nginx    
+#--------  
 run_nginx:
   cmd.run:
     - name: /usr/local/nginx/sbin/nginx
