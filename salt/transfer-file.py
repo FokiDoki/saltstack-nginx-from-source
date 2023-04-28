@@ -9,18 +9,18 @@ if len(sys.argv) != 2:
 
 clientID = sys.argv[1]
 print("Начинаю перенос файлов для клиентов "+clientID)
-process = subprocess.Popen(['sudo', 'salt', "*", 'state.apply', 'nginx_file_send'],
+process = subprocess.Popen(['sudo', 'salt', "*", 'state.apply', 'nginx_files_send'],
                      stdout=subprocess.PIPE, 
                      stderr=subprocess.PIPE)
 stdout, stderr = process.communicate()
+out = stdout.decode("utf-8")
 if stderr:
     print("Ошибка переноса файлов для клиентов "+clientID)
+    err = stderr.decode("utf-8")
     print("Логи запишутся в файл /var/log/salt/transfer_file.log")
     with open("/var/log/salt/transfer_file.log", "w") as file:
-        file.write(stderr.decode("utf-8"))
-    print(stderr.decode("utf-8"))
-    print(stdout.decode("utf-8"))
+        file.write(err)
+    print(err)
     sys.exit(1)
 print("Перенос файлов для клиентов "+clientID+" завершен")
-print(stdout.decode("utf-8"))
 sys.exit(0)
