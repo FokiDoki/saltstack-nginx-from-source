@@ -8,8 +8,8 @@ if len(sys.argv) != 2:
     sys.exit(1)
 
 clientID = sys.argv[1]
-print("Начинаю перенос файлов для клиентов "+clientID)
-process = subprocess.Popen(['sudo', 'salt', "*", 'state.apply', 'nginx_files_send'],
+print("Начинаю перенос файлов для клиента "+clientID)
+process = subprocess.Popen(['sudo', 'salt', clientID, 'state.apply', 'nginx_files_send'],
                      stdout=subprocess.PIPE, 
                      stderr=subprocess.PIPE)
 stdout, stderr = process.communicate()
