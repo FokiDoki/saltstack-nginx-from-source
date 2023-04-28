@@ -1,3 +1,6 @@
+#----------
+#Define variables
+#----------
 {% set nginx_filename = 'nginx-1.24.0.tar.gz' %}
 {% set pcre_filename = 'pcre2-10.40.tar.gz' %}
 {% set zlib_filename = 'zlib-1.2.13.tar.gz' %}
