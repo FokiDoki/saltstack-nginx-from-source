@@ -32,6 +32,7 @@ nano /etc/salt/master.d/network.conf
 ```
 
 ![image](https://user-images.githubusercontent.com/23121394/235133396-dbfa1fe3-fdd3-4c90-a09f-81382c9d8403.png)
+
 Меняем `172.17.96.2` на адрес сервера на котором вы находитесь (Используйте `ip a` чтобы узнать адреса интерфейсов)
 
 Копируем файлы и скрипты
